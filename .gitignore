@@ -1,0 +1,16 @@
+venv
+.venv
+.venv*
+.env
+.DS_Store
+logs/*
+*.ipynb
+
+# Dev
+_samples
+test.txt
+
+# Cache
+__pycache__/
+__pycache__
+*.pyc
