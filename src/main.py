@@ -22,7 +22,18 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-app = FastAPI(version=settings.VERSION)
+app = FastAPI(
+    version=settings.VERSION,
+    docs_url='/docs',
+    openapi_url='/openapi.json',
+    redoc_url='/redoc',
+    servers=[
+        {
+            "url": "http://localhost:8000",
+            "description": "Local development"
+        }
+    ]
+)
 app.include_router(api_router, prefix="/api")
 
 

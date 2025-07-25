@@ -28,3 +28,4 @@ class SAudioTranscriptParams(BaseModel):
 class SAudioTranscript(BaseModel):
     audio: Base64Bytes
     params: SAudioTranscriptParams
+    process_text: bool = False

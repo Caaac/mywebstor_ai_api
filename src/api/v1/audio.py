@@ -11,6 +11,7 @@ router = APIRouter()
 
 @router.post('/test')
 async def test(request: SAudioTranscript):
+    logging.info(f'REQ | {request.process_text}')
     service = STTService(model=SpeechKit())
     result = await service.transcribe(request.audio, **request.params.model_dump())
     logging.info(f'FINISH | {result=}')
@@ -18,7 +19,7 @@ async def test(request: SAudioTranscript):
 
 
 @router.post('/transcript')
-async def test(request: SAudioTranscript):
+async def transcript(request: SAudioTranscript):
     service = STTService(model=SpeechKit())
     result = await service.transcribe(request.audio, **request.params.model_dump())
     logging.info(f'FINISH | {result=}')
